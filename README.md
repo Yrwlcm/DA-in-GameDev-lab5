@@ -71,6 +71,45 @@ Mathf.Clamp(actionBuffers.ContinuousActions[0], 1f, 10f);
 Mathf.Clamp(actionBuffers.ContinuousActions[0]*10, 1f, 10f);
 ```
 
+После этого шарики начали двигаться случайно и обучаться. 
+
+![image](https://github.com/Yrwlcm/DA-in-GameDev-lab5/assets/99079920/45deb7aa-6220-4a29-bd2d-d4ce880ff528)
+
+Однако другая проблема осталась
+# Проблема 2 - скачущий график
+
+Поизучав программу, посмотрев переменные, я заметил, что очень часто происходила ситуация, где tempInf из кода ниже был равен бесконечности. Вряд ли мы работаем с бесконечностями, значит, деление на ноль.
+```C#
+tempInf = ((pricesMonth[1] - pricesMonth[0]) / pricesMonth[0]) * 100;
+if (tempInf is <= 6f)
+{
+	SetReward(1.0f);
+	Debug.Log("True");
+	Debug.Log("tempInf: " + tempInf);
+	EndEpisode();
+}
+else
+{
+	SetReward(-1.0f);
+	Debug.Log("False");
+	Debug.Log("tempInf: " + tempInf);
+	EndEpisode();
+}
+```
+
+Продолжив разбираться в коде, я заметил, что единственное, где мы напрямую задаем pricesMonth равными нулю, это в начале обучения. Которое вызывается в двух случаях, простите за тавтологию, в начале и при повторном обучении.
+```C#
+public override void OnEpisodeBegin()
+{
+	...
+	pricesMonth[0] = 0.0f;
+	pricesMonth[1] = 0.0f;
+	tempInf = 0.0f;
+	month = 1;
+}
+```
+Еще полазив в коде, я заметил, что мы можем закончить эпизод обучения только когда month > 2. А единственное, где мы увеличиваем month
+
 ## Задание 1
 ### Найдите внутри C# скрипта “коэффициент корреляции ” и сделать выводы о том, как он влияет на обучение модели.
 Ход работы:
