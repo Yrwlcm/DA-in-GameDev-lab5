@@ -202,7 +202,8 @@ public class Move : Agent
 		{
 			speedMove = Mathf.Clamp(actionBuffers.ContinuousActions[0]*10, 1f, 10f);
 			timeMining = Mathf.Clamp(actionBuffers.ContinuousActions[1]*10, 1f, 10f);
-			// Кстати, комментирование этих двух строк снижает нагрузку на вашу машину В РАЗЫ, а пользы они особой не дают
+			// Кстати, комментирование этих двух строк снижает нагрузку на вашу машину В РАЗЫ,
+			 а пользы они особой не дают
 			// Debug.Log("SpeedMove: " + speedMove); 
 			// Debug.Log("timeMining: " + timeMining); 
 			setSensor = false;
@@ -320,7 +321,7 @@ else
 }
 ```
 ## Задание 2
-### Написать программу Hello World на C# с запуском на Unity. 
+### Изменить параметры файла yaml-агента и определить какие параметры и как влияют на обучение модели. Привести описание не менее трех параметров.
 
 Ход работы:
 - Скачать установщик Unity с сайта unity.com
