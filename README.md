@@ -201,9 +201,9 @@ public class Move : Agent
 		if (month < 3 || setSensor == true)
 		{
 			speedMove = Mathf.Clamp(actionBuffers.ContinuousActions[0]*10, 1f, 10f);
-			// Debug.Log("SpeedMove: " + speedMove);
 			timeMining = Mathf.Clamp(actionBuffers.ContinuousActions[1]*10, 1f, 10f);
-			// Debug.Log("timeMining: " + timeMining);
+			// Debug.Log("SpeedMove: " + speedMove); Кстати, комментирование этих двух строк снижает нагрузку на вашу машину В РАЗЫ, а пользы они особой не дают
+			// Debug.Log("timeMining: " + timeMining); 
 			setSensor = false;
 			if (checkStartMonth == false)
 			{
