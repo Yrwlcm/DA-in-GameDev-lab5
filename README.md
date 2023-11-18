@@ -137,15 +137,7 @@ public override void OnEpisodeBegin()
 После этих манипуляций хоть модель и не обучилась идеально, но был получен более реалистичный (как по мне) график.
 ![image](https://github.com/Yrwlcm/DA-in-GameDev-lab5/assets/99079920/278c54f9-50e5-4020-9716-677c67069fcc)
 
-
-## Задание 1
-### Найдите внутри C# скрипта “коэффициент корреляции ” и сделать выводы о том, как он влияет на обучение модели.
-Ход работы:
-- Скачать дистрибутив анаконды с сайта anaconda.com
-- Открыть Anaconda.Navigator
-- Открыть Jupyter Notebook
-- Создать новый файл HelloWorld.ipynb
-- Написать в файле
+А ниже итоговый код агента.
 
 ```C#
 using System;
@@ -265,7 +257,7 @@ public class Move : Agent
 		else
 		{
 			tempInf = ((pricesMonth[1] - pricesMonth[0]) / pricesMonth[0]) * 100;
-			if (tempInf is <= 6f and > 5f)
+			if (tempInf is <= 6f)
 			{
 				SetReward(1.0f);
 				Debug.Log("True");
@@ -302,8 +294,14 @@ public class Move : Agent
 }
 ```
 
-
-
+## Задание 1
+### Найдите внутри C# скрипта “коэффициент корреляции ” и сделать выводы о том, как он влияет на обучение модели.
+Ход работы:
+- Скачать дистрибутив анаконды с сайта anaconda.com
+- Открыть Anaconda.Navigator
+- Открыть Jupyter Notebook
+- Создать новый файл HelloWorld.ipynb
+- Написать в файле
 
 - Запускаем
 
