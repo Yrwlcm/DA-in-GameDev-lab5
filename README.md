@@ -202,7 +202,8 @@ public class Move : Agent
 		{
 			speedMove = Mathf.Clamp(actionBuffers.ContinuousActions[0]*10, 1f, 10f);
 			timeMining = Mathf.Clamp(actionBuffers.ContinuousActions[1]*10, 1f, 10f);
-			// Debug.Log("SpeedMove: " + speedMove); Кстати, комментирование этих двух строк снижает нагрузку на вашу машину В РАЗЫ, а пользы они особой не дают
+			// Кстати, комментирование этих двух строк снижает нагрузку на вашу машину В РАЗЫ, а пользы они особой не дают
+			// Debug.Log("SpeedMove: " + speedMove); 
 			// Debug.Log("timeMining: " + timeMining); 
 			setSensor = false;
 			if (checkStartMonth == false)
